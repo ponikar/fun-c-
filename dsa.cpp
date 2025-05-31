@@ -117,32 +117,121 @@ public:
 int main()
 {
     Stack s;
-    int a = 15, b = 10, c = 29, d = 2;
-    s.add(a);
-    s.add(b);
-    s.add(c);
-    s.add(d);
-    s.print();
-    cout << "Stack current position: " << s.CurrentPosition() << endl;
-    cout << "Stack deleted: " << s.del() << endl;
-    s.print();
-    cout << "Stack current position: " << s.CurrentPosition() << endl;
-
-    cout << "\n" << endl;
-
     Queue q;
-    int m = 20, n = 30, o = 40, p = 50;
-    q.insert(m);
-    q.insert(n);
-    q.insert(o);
-    q.insert(p);
-    q.print();
-    q.PrintFrontIndex();
-    q.PrintBackIndex();
-    cout << "Queue deleted: " << q.del() << endl;
-    q.PrintFrontIndex();
-    q.PrintBackIndex();
-    q.print();
+    int choice, value;
+
+    while (true)
+    {
+        cout << "\nStack and Queue Operations" << endl;
+        cout << "1. Add to Stack" << endl;
+        cout << "2. Delete from Stack" << endl;
+        cout << "3. Print Stack" << endl;
+        cout << "4. Show Stack Top Position" << endl;
+        cout << "5. Insert to Queue" << endl;
+        cout << "6. Delete from Queue" << endl;
+        cout << "7. Print Queue" << endl;
+        cout << "8. Show Queue Front and Back Indices" << endl;
+        cout << "9. Exit" << endl;
+        cout << "Enter your choice (1-9): ";
+
+        if(!(cin >> choice))
+        {
+            cout << "Invalid input! Please enter a number between 1 and 9." << endl;
+            continue;
+        }
+        if(choice == 9)
+        {
+            cout << "Exiting the Program." << endl;
+            break;
+        }
+
+        switch(choice)
+        {
+            case 1:
+            cout << "Enter a number to add into a stack: ";
+            if(cin >> value)
+            {
+                s.add(value);
+            }
+            else
+            {
+                cout << "Invalid input! Please enter a valid number." << endl;
+            }
+            break;
+
+            case 2:
+            s.del();
+            break;
+
+            case 3:
+            s.print();
+            break;
+
+            case 4:
+            if(s.CurrentPosition() < 0)
+            {
+                cout << "Stack is empty." << endl;
+            }
+            else
+            {
+                cout << "Stack top position: " << s.CurrentPosition() <<endl;
+            }
+            break;
+            
+            case 5:
+            cout << "Enter a number to insert into a queue: ";
+            if(cin >> value)
+            {
+                q.insert(value);
+            }
+            else
+            {
+                cout << "Invalid input! Pleasse enter a valid number." << endl;
+            }
+            break;
+
+            case 6:
+            q.del();
+            break;
+
+            case 7: 
+            q.print();
+            break;
+
+            case 8:
+            q.PrintFrontIndex();
+            q.PrintBackIndex();
+            break;
+
+            default:
+            cout << "Invalid choice! Please select a number between 1 to 9." << endl;
+        }
+    }
+    // int a = 15, b = 10, c = 29, d = 2;
+    // s.add(a);
+    // s.add(b);
+    // s.add(c);
+    // s.add(d);
+    // s.print();
+    // cout << "Stack current position: " << s.CurrentPosition() << endl;
+    // cout << "Stack deleted: " << s.del() << endl;
+    // s.print();
+    // cout << "Stack current position: " << s.CurrentPosition() << endl;
+
+    // cout << "\n" << endl;
+
+    // int m = 20, n = 30, o = 40, p = 50;
+    // q.insert(m);
+    // q.insert(n);
+    // q.insert(o);
+    // q.insert(p);
+    // q.print();
+    // q.PrintFrontIndex();
+    // q.PrintBackIndex();
+    // cout << "Queue deleted: " << q.del() << endl;
+    // q.PrintFrontIndex();
+    // q.PrintBackIndex();
+    // q.print();
 
     return 0;
 }
